@@ -30,56 +30,57 @@ var path = {
     clean:     'dist'
 };
 
-/* подключаем gulp и плагины */
-var gulp = require('gulp'), // подключаем Gulp
-	sass = require('gulp-sass'), // модуль для компиляции SASS (SCSS) в CSS
-	autoprefixer = require('gulp-autoprefixer'), // модуль для автоматической установки автопрефиксов
-	browserSync = require('browser-sync').create(), // сервер для работы и автоматического обновления страниц
-	useref = require('gulp-useref'), //парсит специфичные блоки и конкатенирует описанные в них стили и скрипты.
-	cache = require('gulp-cache'), // модуль для кэширования
-	plumber = require('gulp-plumber'), // модуль для отслеживания ошибок
-	uglify = require('gulp-uglify'), // модуль для минимизации JavaScript
-	sourcemaps = require('gulp-sourcemaps'), // модуль для генерации карты исходных файлов
-	cleanCSS = require('gulp-clean-css'), // плагин для минимизации CSS
-	minifyCss = require('gulp-minify-css'),
-	gulpif = require('gulp-if'),
-	imagemin = require('gulp-imagemin'), // плагин для сжатия PNG, JPEG, GIF и SVG изображений
-	jpegrecompress = require('imagemin-jpeg-recompress'), // плагин для сжатия jpeg
-	pngquant = require('imagemin-pngquant'), // плагин для сжатия png
-	del = require('del'),
-	replace = require('gulp-string-replace'), //автозамена строк
-	rigger = require('gulp-rigger'), // модуль для импорта содержимого одного файла в другой
-	runSequence = require('run-sequence'),
-	babel = require('gulp-babel'), //преобразование скриптов с поддержкой ES6
-	removeHtmlComments = require('gulp-remove-html-comments'); //удаление комментариев в html-файлах
+
+var gulp = require('gulp'),
+  sass = require('gulp-sass'),
+  autoprefixer = require('gulp-autoprefixer'),
+  browserSync = require('browser-sync').create(),
+  useref = require('gulp-useref'),
+  cache = require('gulp-cache'),
+  plumber = require('gulp-plumber'),
+  uglify = require('gulp-uglify'),
+  sourcemaps = require('gulp-sourcemaps'),
+  cleanCSS = require('gulp-clean-css'),
+  minifyCss = require('gulp-minify-css'),
+  gulpif = require('gulp-if'),
+  imagemin = require('gulp-imagemin'),
+  jpegrecompress = require('imagemin-jpeg-recompress'),
+  pngquant = require('imagemin-pngquant'),
+  del = require('del'),
+  replace = require('gulp-string-replace'),
+  rigger = require('gulp-rigger'),
+  runSequence = require('run-sequence'),
+  babel = require('gulp-babel'),
+  removeHtmlComments = require('gulp-remove-html-comments');
 
 
 gulp.task('sass', function () {
   return gulp.src( path.src.scss )
-    .pipe( plumber() ) // для отслеживания ошибок
-    .pipe( sourcemaps.init() ) // инициализируем sourcemap
-    .pipe( sass() ) // scss -> css
+    .pipe( plumber() )              // для отслеживания ошибок
+    .pipe( sourcemaps.init() )      // инициализируем sourcemap
+    .pipe( sass() )                 // scss -> css
     .pipe( autoprefixer(  {
       overrideBrowserslist: ['last 2 versions'] ,
       cascade: false,
     }  ) )
-    .pipe( cleanCSS() ) // минимизируем CSS
-    .pipe( sourcemaps.write( './' ) ) // записываем sourcemap
-    .pipe( gulp.dest( path.src.css ) )  // выкладывание готовых файлов
+    .pipe( cleanCSS() )                   // минимизируем CSS
+    .pipe( sourcemaps.write( './' ) )     // записываем sourcemap
+    .pipe( gulp.dest( path.src.css ) )    // выкладывание готовых файлов
     .pipe( browserSync.stream() );
 });
 
 gulp.task('sass:build', function () {
   return gulp.src(path.src.scss)
-  .pipe(plumber()) // для отслеживания ошибок
-   .pipe(sass()) // scss -> css
-	.pipe(autoprefixer({overrideBrowserslist: ['last 2 versions'] , cascade: false }))
-    .pipe(cleanCSS()) // минимизируем CSS
-    .pipe(gulp.dest(path.src.css))  // выкладывание готовых файлов
-	.pipe(browserSync.stream());
+    .pipe(plumber())      // для отслеживания ошибок
+   .pipe(sass())          // scss -> css
+    .pipe(autoprefixer({overrideBrowserslist: ['last 2 versions'] , cascade: false }))
+    .pipe(cleanCSS())     // минимизируем CSS
+    .pipe(gulp.dest(path.src.css))    // выкладывание готовых файлов
+  .pipe(browserSync.stream());
 });
 
-gulp.task('build:delhtmlcomm', function () { //удаляем комментрари в PHP (html)
+gulp.task('build:delhtmlcomm', function () {
+  //удаляем комментарии в PHP (html)
   return gulp.src('dist/**/*.html')
     .pipe(removeHtmlComments())
     .pipe(gulp.dest('dist'));
@@ -98,15 +99,16 @@ gulp.task('browserSync', function() {
     });
 });
 
-gulp.task('useref', function () { //сжатие всего остального
+gulp.task('useref', function () {
+      //сжатие всего остального
      gulp.src( path.src.html )
-        .pipe( useref() )  //парсит специфичные блоки и конкатенирует описанные в них стили и скрипты.
+        .pipe( useref() )         //парсит специфичные блоки и конкатенирует описанные в них стили и скрипты.
         .pipe( gulpif(  '*.css', minifyCss( {processImport: false} )  ) )
         .pipe( gulp.dest( 'dist' ) );
 });
 
 
-gulp.task('script', () => {  //сжатие скриптов с поддержкой ES6
+gulp.task('script', () => {       //сжатие скриптов с поддержкой ES6
     return gulp.src('app/assets/js/**/*')
         .pipe(babel({
             presets: ['@babel/env']
@@ -116,9 +118,9 @@ gulp.task('script', () => {  //сжатие скриптов с поддержк
 });
 
 gulp.task('images', function () {
-    gulp.src(path.src.img) // путь с исходниками картинок
-        .pipe(cache(imagemin([ // сжатие изображений
-		    imagemin.gifsicle({interlaced: true}),
+    gulp.src(path.src.img)          // путь с исходниками картинок
+        .pipe(cache(imagemin([      // сжатие изображений
+        imagemin.gifsicle({interlaced: true}),
             jpegrecompress({
                 progressive: true,
                 max: 90,
@@ -126,8 +128,8 @@ gulp.task('images', function () {
             }),
             pngquant(),
             imagemin.svgo(  { plugins: [ {removeViewBox: false} ] }  ),
-		])))
-        .pipe( gulp.dest( path.dist.img ) ); // выгрузка готовых файлов
+    ])))
+        .pipe( gulp.dest( path.dist.img ) );
 });
 
 
@@ -137,16 +139,16 @@ gulp.task('browser-sync', function() {
 
 
 gulp.task('fonts', function () {
-	return gulp.src('app/assets/fonts/**/*')
-		.pipe(gulp.dest(path.dist.fonts))
+  return gulp.src('app/assets/fonts/**/*')
+    .pipe(gulp.dest(path.dist.fonts))
 });
 
 gulp.task('clean', function () {
-	del('dist');
+  del('dist');
 });
 
 gulp.task('build', function (callback) {
-	runSequence(
+  runSequence(
     [ 'clean', 'sass:build', 'useref', 'images', 'fonts', 'script', 'build:delhtmlcomm' ],
     callback);
 });
@@ -168,7 +170,7 @@ gulp.task('build', function (callback) {
 // ) );
 
 gulp.task('default', function (callback) {
-	runSequence( [ 'sass' , 'browserSync' , 'watch' ], callback);
+  runSequence( [ 'sass' , 'browserSync' , 'watch' ], callback);
 });
 
 // gulp.task( 'default', gulp.series(

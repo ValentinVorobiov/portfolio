@@ -39,6 +39,7 @@ $controls-indicator-active: #2387b6;
       position: relative;
       padding: 0 $control-width;
       background-color: #fff;
+      max-height: 100%;
 
     }
 
@@ -52,6 +53,7 @@ $controls-indicator-active: #2387b6;
       @include flexbox;
       flex-flow: row wrap;
       justify-content: space-between;
+      @include cancel-outline;
 
       button{
         @include cancel-outline;
@@ -135,13 +137,17 @@ $controls-indicator-active: #2387b6;
 
   .slider-slide__image{
 
+    position: relative;
+
     & img{
       max-height: 100%;
       max-width: calc( 100% - 0.5#{ $control-width } );
     }
 
     & a{
-
+      position: absolute;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
     }
 
   }
@@ -151,12 +157,14 @@ $controls-indicator-active: #2387b6;
     left: $control-width; top: 0;
     @include inline-flexbox;
     @include font-roboto;
+    @include border-box-sizing;
     background-color: $darktheme-bgcolor;
     color: $darktheme-forecolor;
-    @include border-box-sizing;
-    padding: 5.5% 10%;
+    padding: 40px 40px;
+    flex-flow: column wrap;
     align-items: center;
-    justify-content: space-evenly;
+    // justify-content: space-evenly;
+    justify-content: flex-start;
     width: calc( 50% - #{ $control-width } );
     // 0.5*#{ $prevnext-control-size }
     height: 100%;
@@ -164,6 +172,12 @@ $controls-indicator-active: #2387b6;
 
     .slide-description__header {
       @include pf-heading;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    p{
+      margin-top: 1em; margin-bottom: 1em;
     }
 
     .project-features{
@@ -180,6 +194,17 @@ $controls-indicator-active: #2387b6;
 
       }
 
+    }
+
+    .slide-description__notifier{
+      width: 40%;
+      @include auto-margins;
+      @include border-box-sizing;
+      padding: 10px;
+      border: 2px solid orange;
+      text-align: center;
+      font-weight: bolder;
+      background-color: #6c23b6;
     }
 
   }

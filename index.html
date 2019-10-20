@@ -1,161 +1,61 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title> Portfolio Task </title>
+  <title> Portfolio Framer </title>
 
   <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
   <link rel="stylesheet" type="text/css" href="assets/css/normalize.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/tiny-slider.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
+  <style>
 
+    body{
+      min-height: 100vh;
+    }
+
+    .framer-content-wrapper{
+      width: 100%;
+      min-height: 100%;
+      min-height: 100vh;
+      background: #fff;
+      display: flex;
+      flex-flow: column wrap;
+      align-items: center;
+      justify-content: stretch ;
+    }
+
+    .framer-content-wrapper.mobile{
+      max-width: 391px;
+      margin-left: auto; margin-right: auto;
+      min-height: 100vh;
+    }
+
+    .content-target{
+      flex-grow: 2;
+      min-width: 100%;
+      min-height: 100%;
+    }
+
+  </style>
 </head>
-<body class="portfolio-page portfolio">
+<body>
+  <div class="toolbar">
+    <button class="toolbar__button toolbar__button--res-toggler"> Mobile </button>
+    <button class="toolbar__button toolbar__button--back"> Back </button>
+    <button class="toolbar__button toolbar__button--pf"> Portfolio </button>
+    <button class="toolbar__button toolbar__button--theyalow"> TheyAlow </button>
+    <button class="toolbar__button toolbar__button--repair-design"> RD Project </button>
 
-  <header class="portfolio__header page-header page-container">
-      <section class="page-header__personal-data personal-data">
-
-      <div class="page-container">
-
-          <figure class="personal-data__photo">
-              <img src="https://avatars2.githubusercontent.com/u/47920415" alt="Portfolio Author" title="Portfolio Author">
-              <figcaption></figcaption>
-          </figure>
-
-          <div class="personal-data__wrapper">
-
-            <div class="personal-data__name">
-                <span class="name">Varabiou</span> <span class="surname">Valiantsin</span>
-            </div>
-
-            <div class="personal-data__contacts contacts-list">
-              <a href="https://github.com/ValentinVorobiov" target="_blank" alt="" title="" class="contacts-list__contact contacts-list__contact--github"> </a>
-              <a href="tel:+375447129525" target="_blank" class="contacts-list__contact contacts-list__contact--contact-gsm"></a>
-              <a href="viber://chat?number=375447129525" target="_blank" class="contacts-list__contact contacts-list__contact--contact-viber"></a>
-              <a href="https://api.whatsapp.com/send?phone=375447129525" target="_blank" class="contacts-list__contact contacts-list__contact--contact-whatsapp"></a>
-              <a href="skype:vorobiov.valentin" target="_blank" class="contacts-list__contact contacts-list__contact--contact-skype"></a>
-              <!-- <a href="mailto:vxdator@gmail.com" target="_blank" class="contacts-list__contact contacts-list__contact--contact-email"></a>
-              <a href="mailto:vxdator@yandex.ru" target="_blank" class="contacts-list__contact contacts-list__contact--contact-email"></a> -->
-            </div>
-
-      </div>
-
-      </div>
-
-      </section>
-  </header>
-
-  <main class="portfolio__main page-main">
-    <div class="page-container">
-
-      <section class="page-main__education main-education accordion">
-
-        <div class="main-education__header accordion-toggler"> Education </div>
-
-        <div class="main-education__contents accordion-contents">
-          <ul class="main-education__list education-list">
-            <li class="education-list__item">
-                <span class="date-range"> 1999-2004 </span>
-                <span class="edu-name inline"> Mogilev Mechanical Engineering Institute </span> /
-                <span class="edu-name inline"> Mogilev State Technical University </span> /
-                <span class="edu-name inline"> Belarussian and Russian University </span>
-                <span class="edu-target"> Engineer degree </span>
-            </li>
-            <li class="education-list__item">
-                <span class="date-range"> 1999-2004 </span>
-                <span class="edu-name"> Belarussian and Russian University </span>
-                <span class="edu-target"> Post-graduate education; Master's degree </span>
-            </li>
-            <li class="education-list__item">
-                <span class="date-range"> Sep 2018 &mdash; Jan 2019 </span>
-                <span class="edu-name"> EPAM FrontEnd October 2018 </span>
-                <span class="edu-target"> Certificate of Completion </span>
-            </li>
-            <li class="education-list__item">
-                <span class="date-range"> Aug 2019 &mdash; present </span>
-                <span class="edu-name"> CodeWars <a class="valuable" target="blank" href="https://www.codewars.com/users/QelDroma82">CodeWars</a> </span>
-            </li>
-            <li class="education-list__item">
-                <span class="date-range"> Sep 2019 &mdash; present </span>
-                <span class="edu-name"> EPAM FrontEnd October 2018 </span>
-            </li>
-          </ul>
-        </div>
-
-      </section>
-
-        <section class="page-main__projects main-projects">
-
-          <div class="main-projects__slider slider slider-base" id="base">
-
-            <div class="item slider__item slider-slide">
-
-              <div class="slider-slide__image project-image">
-                <img src="./assets/img/theyalow-screenshot.png" alt="TheyAlow Project Screenshot" title="TheyAlow Project">
-                <a class="slider-slide__link router-link" href="./projects/theyalow/index.html" ></a>
-              </div>
-
-              <div class="slider-slide__description slide-description">
-                <div class="slide-description__header"> TheyAlow Project </div>
-                <p class="slide-description__text">
-                  Markup sketching task by designed template
-                  <ul class="project-features">
-                    <li> Media queries </li>
-                    <li> Clean CSS Styling </li>
-                    <li> Minimal JS functionality </li>
-                  </ul>
-                </p>
-                <p class="slide-description__notifier">
-                  Tap on image to see the project
-                </p>
-              </div>
-
-            </div>
-
-            <div class="item slider__item slider-slide">
-
-              <div class="slider-slide__image project-image">
-                <img src="./assets/img/rdproject-screenshot.png" alt="Repair Design Project Screenshot" title="">
-                <a class="slider-slide__link router-link" href="./projects/repair-design-project/index.html" ></a>
-              </div>
-
-              <div class="slider-slide__description slide-description">
-                <div class="slide-description__header"> Repair Design Project </div>
-                <p class="slide-description__text">
-                  Yet another sketching task, template provided
-                  <ul class="project-features">
-                    <li> Media queries </li>
-                    <li> SASS usage </li>
-                    <li> Minimal JS functionality </li>
-                  </ul>
-                </p>
-                <p class="slide-description__notifier">
-                  Tap on image to see the project
-                </p>
-              </div>
-
-            </div>
-
-
-
-          </div>
-
-        </section>
-
-    </div>
-
-  </main>
-
-  <footer class="portfolio__footer page-footer">
-
-  </footer>
-
-  <script src="./assets/js/vanilla-accordion.js"></script>
-  <script src="./assets/js/tiny-slider.js"></script>
-  <script src="./assets/js/portfolio-slider.js"></script>
-  <!--[if (IE 8)&!(IEMobile)]><script src="js/tiny-slider.helper.ie8.js"></script><![endif]-->
+  </div>
+  <div class="framer-content-wrapper">
+    <iframe class="content-target" src="">
+    </iframe>
+  </div>
 
 </body>
+
+<script type="text/javascript" src="./assets/js/framer-routing.js"></script>
+
 </html>

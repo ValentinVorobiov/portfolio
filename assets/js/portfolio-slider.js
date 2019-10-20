@@ -14,13 +14,7 @@ const desktop_options = {
 
 let sliders = document.body.querySelectorAll( '.slider' );
 
-console.log( 'Initializing TinySliders...' );
-
 for( let i = 0; i < sliders.length; i++ ){
-  console.log( 'trying to make slider #', i+1  );
   let currentSlider = sliders[ i ];
-  console.log( 'slider box BEFORE: \n', sliders[ i ] );
   currentSlider = tns( desktop_options );
-  console.log( 'slider box AFTER: \n', currentSlider );
-
 }
