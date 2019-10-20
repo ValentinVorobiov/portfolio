@@ -1,0 +1,668 @@
+@import './fonts.scss';
+
+$default-font-size : 14px;
+$default-font-family: 'Futura BookC';
+$demi-font-family: 'FuturaDemiC';
+$alternate-font-family : 'Yeseva One';
+$proxima-font-family: 'Proxima Nova';
+$header-instagram-width : 82px;
+$default-body-bgcolor: #ffffff;
+
+$dark-theme-bgcolor : #131313 ;
+$dark-theme-forecolor : #ffffff;
+$dark-theme-highlight-forecolor: #e4b773;
+$dark-theme-button-bgcolor: #e3b873;
+
+$light-theme-forecolor: #363636;
+
+@mixin default-font{
+  font-family: $default-font-family;
+  font-size: $default-font-size;
+  font-weight: normal;
+  line-height: 1.143em;
+}
+
+@mixin auto-margins {
+  margin-left: auto; margin-right: auto;
+}
+
+
+@mixin scrolldown{
+
+  position: fixed;
+  @include border-box-sizing;
+  @include inline-flexbox;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 48px; padding-right: 49px;
+  z-index: 50;
+  left: 0px;
+  bottom: 50px;
+  @include border-box-sizing();
+  padding: 34px 48px;
+  width: 247px;
+  text-transform: uppercase;
+  @include font-yeseva;
+  background-color: $dark-theme-bgcolor;
+  color: $dark-theme-forecolor;
+
+  & > span {
+    text-transform: uppercase;
+    line-height: 138.6%;
+  }
+
+}
+
+@mixin correct-z{
+  z-index: 2;
+}
+
+@mixin border-box-sizing {
+  box-sizing: border-box; -webkit-box-sizing: border-box; -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box; -o-box-sizing: border-box;
+}
+
+@mixin inline-flexbox {
+  display: inline-flex;
+  flex-flow: row wrap;
+}
+
+@mixin inline-col-flexbox {
+  display: inline-flex;
+  flex-flow: column wrap;
+}
+
+@mixin flexbox {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+@mixin absolute-centered {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translateX( -50% ) translateY( -50% );
+}
+
+@mixin column-flexbox {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+@mixin flexbox-centered-content {
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flexbox-space-between {
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flexbox-space-evenly {
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+@mixin rotate90{
+  transform: rotate( 90deg );
+}
+
+@mixin font-alternate {
+  font-family: $alternate-font-family;
+}
+
+@mixin font-yeseva {
+  font-family: $alternate-font-family;
+}
+
+@mixin font-default {
+  font-family: $default-font-family;
+}
+
+@mixin font-futurabookc {
+  font-family: $default-font-family;
+}
+
+@mixin font-proximanova{
+  font-family: $proxima-font-family;
+}
+
+@mixin font-demic{
+  font-family: $demi-font-family;
+}
+
+@mixin font-futurademic{
+  font-family: $demi-font-family;
+}
+
+
+@mixin default-heading {
+  @include font-yeseva;
+  font-size: 20px;
+  line-height: 28px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+$rdp-text-info-width: 40%;
+$rdp-text-info-left-space : 19.45px;
+$rdp-text-info-right-space: 50px;
+
+@mixin rdp-slider{
+  position: relative;
+  @include flexbox;
+
+  &-slider-contents{
+    width: 100%;
+    height: 482px;
+    @include flexbox;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+
+  }
+}
+
+@mixin rdp-slider-prevnext {
+  $prevnext-control-size: 55px;
+
+  position: absolute;
+  width: 90%;
+  top: calc( 50% - 0.5*#{ $prevnext-control-size } );
+  overflow-y: visible;
+  @include flexbox;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+
+  & .prevnext-control{
+    width: $prevnext-control-size;
+    height: $prevnext-control-size;
+    box-shadow: 0px 0px 15px rgba(227, 184, 115, 0.5);
+    border-radius: 50%;
+    background-color: $dark-theme-button-bgcolor;
+    background-position: center center;
+    background-repeat: no-repeat;
+    @include correct-z;
+    cursor: pointer;
+  }
+
+  & .prevnext-prev{
+    background-image: url( ../img/prevnext-prev.svg );
+  }
+
+  & .prevnext-next{
+    background-image: url( ../img/prevnext-next.svg );
+  }
+
+}
+
+@mixin rdp-slider-slide{
+  @include inline-flexbox;
+  @include border-box-sizing;
+  max-height: 100%;
+  min-width: 90%;
+  margin-left: -80%;
+  opacity: 0.01;
+  overflow-y: none;
+
+  &.active{
+    margin-left: 0;
+    padding-left: 0;
+    opacity: 1.0;
+    position: relative;
+    z-index: inherit;
+  }
+
+}
+
+@mixin rdp-slide-text {
+  @include inline-flexbox;
+  @include border-box-sizing;
+  width: $rdp-text-info-width;
+  padding-left: $rdp-text-info-left-space;
+  padding-right: $rdp-text-info-right-space;
+  flex-flow: column wrap;
+}
+
+@mixin rdp-slide-image {
+  flex-grow: 2;
+  @include inline-flexbox;
+  justify-content: stretch;
+  max-height: 100%;
+  overflow-y: hidden;
+  width: 59%;
+
+  & img {
+    max-height: 100%;
+    max-width: 100%;
+  }
+
+}
+
+
+@mixin rdp-slide-active{
+  @include inline-flexbox;
+  @include border-box-sizing;
+  max-height: 100%;
+  min-width: 90%;
+  overflow-y: none;
+
+  &-text{
+    @include inline-flexbox;
+    @include border-box-sizing;
+    width: $rdp-text-info-width;
+    padding-left: $rdp-text-info-left-space;
+    padding-right: $rdp-text-info-right-space;
+    flex-flow: column wrap;
+
+    &-textbox {
+      @include font-futurabookc;
+      font-size: 18px;
+      line-height: 29px;
+      margin-bottom: 42px;
+    }
+
+    &-heading {
+      @include flexbox;
+      @include font-yeseva;
+      position: relative;
+      font-size: 27px;
+      line-height: 37px;
+      letter-spacing: -0.07em;
+      color: $dark-theme-highlight-forecolor;
+      text-transform: uppercase;
+      min-width: 253px;
+      margin-bottom: 30px;
+      text-align: left;
+
+      &::after{
+        @include border-box-sizing;
+        position: absolute;
+        right:33%; bottom: 40%;
+        content: "-";
+        height: 1px;
+        width: 92px;
+        color: transparent;
+        background-color: $dark-theme-highlight-forecolor;
+        align-self: flex-end;
+      }
+    }
+
+  }
+
+
+  &-image{
+    flex-grow: 2;
+    @include inline-flexbox;
+    justify-content: stretch;
+    max-height: 100%;
+    overflow-y: hidden;
+    width: 59%;
+
+    & img{
+      max-height: 100%;
+      max-width: 100%;
+    }
+
+  }
+
+
+}
+
+@mixin rdp-slider-slogan{
+  margin-bottom: -10px;
+}
+
+@mixin rdp-slider-captions{
+
+}
+
+
+
+@mixin rdp-slider-controls{
+  align-self: flex-end;
+  justify-self: flex-start;
+  z-index: 4;
+  bottom: 0px;
+  @include inline-flexbox;
+  @include flexbox-centered-content;
+  @include border-box-sizing;
+  padding-left: $rdp-text-info-left-space;
+  height: 14px;
+
+  .slider-control-prev{
+    width: 42px; height: 14px;
+    background-image: url( ../img/arrow-left.svg );
+    background-repeat: no-repeat; background-size: cover;
+    margin-right: 29.5px;
+    cursor: pointer;
+  }
+
+  .slider-control-next{
+    width: 42px; height: 14px;
+    background-image: url( ../img/arrow-right.svg );
+    background-repeat: no-repeat; background-size: cover;
+    margin-left: 29.5px;
+    cursor: pointer;
+  }
+
+  .slider-indicators{
+    @include inline-flexbox;
+    @include flexbox-centered-content;
+    $indicator-color: #fff;
+
+    .slider-indicator{
+      background-color: $indicator-color;
+      opacity: 0.3;
+      height: 10px; width: 10px;
+      border-radius: 30px;
+      transition: 0.35s all ease-in-out;
+      margin-right: 17.54px;
+      cursor: pointer;
+    }
+
+    .slider-indicator:last-child{
+      margin-right: 0px;
+    }
+
+    .slider-indicator.active,
+    .slider-indicator:hover,
+    .slider-indicator:active,
+    .slider-indicator:focus {
+      background-color: $indicator-color;
+      opacity: 1.0;
+    }
+
+  }
+
+}
+
+@mixin image-line{
+  content: "";
+  display: inline-block;
+  width: 32px;
+  height: 1.54px;
+  background-color: $dark-theme-highlight-forecolor;
+  color: $dark-theme-highlight-forecolor;
+}
+
+@mixin ocf-normal-font{
+  @include font-futurabookc;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+@mixin ocf-small-font{
+  @include font-futurabookc;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+
+@mixin form-line{
+  @include flexbox;
+  width: 100%;
+  justify-content: space-between;
+  box-pack: start;
+  -webkit-box-pack: start;
+  padding: 0px;
+  margin-bottom: 10px;
+}
+
+@mixin form-group{
+
+  @include flexbox;
+
+  & label{
+    width: 100%;
+    text-align: left;
+    font-size: 15px;
+    line-height: 1.33333;
+  }
+
+  & input[type=text]{
+    width: 100%;
+    border: 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(54, 54, 54, 0.3);
+    margin-bottom: 10px;
+    outline-color: transparent;
+  }
+
+
+
+}
+
+@mixin adv-block{
+
+    @include flexbox;
+    justify-content: center;
+    width: 200px;
+    margin-left: auto; margin-right: auto;
+    margin-bottom: 31.21px;
+
+    &-heading {
+      color: #181818;
+      margin-bottom: 12.79px;
+    }
+
+    &-image{
+      @include flexbox;
+      justify-content: space-between;
+      align-items: center;
+      min-width: 115px;
+
+      & img{
+        height: 28px; width: auto;
+      }
+
+      &::before {
+        @include image-line;
+        margin-right: 9.47px;
+      }
+
+      &::after {
+        @include image-line;
+        margin-left: 9.47px;
+      }
+
+    }
+
+}
+
+@mixin oct-text{
+  @include font-futurabookc;
+  position: relative;
+  font-size: 20px;
+  line-height: 34px;
+  color: $light-theme-forecolor;
+  text-align: center;
+  max-width: 681px;
+  @include auto-margins;
+  @include border-box-sizing;
+  padding: 34.46px 0px;
+
+  &::before{
+    @include image-line;
+    width: 55px;
+    height: 1.54px;
+    position: absolute;
+    top:1.54px; left: 50%;
+    transform: translateX( -50% );
+
+  }
+}
+
+$pw-margin-default : 31px;
+
+@mixin plates-wrapper{
+
+  @include border-box-sizing;
+    margin-top: $pw-margin-default;
+    @include flexbox;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: stretch;
+    width: 100%;
+    max-width: 1236px;
+    @include auto-margins;
+}
+
+@mixin plates-plate{
+  width: 32.1%;
+  @include border-box-sizing;
+  position: relative;
+  @include inline-flexbox;
+  flex-flow: column wrap;
+}
+
+
+@mixin plate-image{
+  height: 392px;
+  overflow: hidden;
+
+  & img {
+    max-width: 100%;
+  }
+}
+
+@mixin plate-features-list{
+
+  margin-left: $pw-margin-default;
+  margin-right: $pw-margin-default;
+  background-color: $default-body-bgcolor;
+  @include border-box-sizing;
+  padding: 25px $pw-margin-default;
+  @include font-futurabookc;
+  font-size: 15px;
+  line-height: 25px;
+  color: #959595;
+  list-style-type: disc;
+  position: relative;
+  margin-top: -127px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.03);
+
+  &-heading{
+    @include font-yeseva;
+    font-size: 18px;
+    line-height: 25px;
+    color: $light-theme-forecolor;
+    margin-bottom: 13px;
+  }
+
+  & > li {
+    list-style-position: inside;
+  }
+
+}
+
+@mixin plate-pricing{
+  position: absolute;
+  left: $pw-margin-default;
+  @include font-yeseva;
+  @include border-box-sizing;
+  @include submit-button;
+  bottom: 0px;
+  font-size: 18px;
+  line-height: 25px;
+  min-width: 228px;
+  min-height: 54px;
+  box-shadow: 5px 5px 10px rgba(227, 184, 115, 0.3);
+}
+
+@mixin submit-button {
+  @include flexbox;
+  @include flexbox-centered-content;
+  background-color: $dark-theme-button-bgcolor;
+  font-size: 15px;
+  line-height: 26px;
+  text-transform: uppercase;
+  color: #ffffff;
+  transition: 0.35s background linear;
+  cursor: pointer;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: #33a;
+  }
+}
+
+@mixin customized-checkbox{
+  -webkit-appearance: none;
+    display: inline-block;
+    position: relative;
+    top: 3px;
+    margin-right: 0.25em;
+    padding: 0;
+    background-repeat: no-repeat;
+    border: 1px solid #B5B5B5;
+    border-radius: 1px;
+    width: 18px !important;
+    height: 18px !important;
+    -webkit-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: background 0.5s ease;
+    outline: none;
+
+    &:checked{
+      background-color: $dark-theme-button-bgcolor;
+      background-image: url( ../img/checkbox-checked.svg );
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 8.5px 8.5px;
+    }
+
+    &:hover{
+      background: $dark-theme-button-bgcolor;
+    }
+
+    &:checked:hover{
+      background-color: $dark-theme-button-bgcolor;
+      background-image: url( ../img/checkbox-checked.svg );
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 10px 10px;
+    }
+
+}
+
+@mixin popup-zindex{
+  z-index: 12;
+}
+
+.page-scrolldown{
+  @include scrolldown;
+}
+
+html, body{
+  font-family: $default-font-family;
+  font-size: $default-font-size;
+}
+
+body{
+  background-color: $default-body-bgcolor;
+  position: relative;
+}
+
+.page-container{
+  display: block;
+  max-width: 1440px;
+  margin-left: auto; margin-right: auto;
+}
+
+.highlight {
+  color: $dark-theme-highlight-forecolor;
+}
+
+body a{
+  text-decoration: none;
+}
+
+.default-heading {
+  @include default-heading;
+}
+
+

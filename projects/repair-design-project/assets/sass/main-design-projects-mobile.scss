@@ -1,0 +1,84 @@
+@import './common-mobile.scss';
+
+.main-design-projects {
+  position: relative;
+  background-color: $dark-theme-bgcolor;
+  @include border-box-sizing;
+    padding: 0px 18px;
+}
+
+.design-projects{
+
+  .design-projects-wrapper{
+    @include plates-wrapper;
+    align-items: flex-start;
+    background-color: $dark-theme-bgcolor;
+    margin-top: 16px;
+
+  }
+
+  .design-projects-adv{
+    @include adv-block;
+    padding-top: 52px;
+    margin-bottom: 0;
+
+    &-heading{
+      z-index: 2;
+      color: $dark-theme-forecolor;
+    }
+
+    &-image{
+      z-index: 2;
+    }
+
+  }
+
+  .design-project-text{
+    @include oct-text;
+    padding-right: 5px;
+    z-index: 2;
+    color: $dark-theme-forecolor;
+    padding: 23.11px 0px;
+
+    &::before{
+      display: none;
+    }
+
+  }
+
+  .design-project{
+    @include plates-plate;
+    width: 100%;
+    margin-bottom: 80px;
+
+    &-image{
+      @include plate-image;
+    }
+
+    &-features{
+      @include plate-features-list;
+      padding-top: 18px;
+      padding-bottom: 31px;
+      margin-top: -70px;
+      width: 80%;
+
+      & > li{
+        font-size: 13px;
+        line-height: 1.698;
+      }
+
+    }
+
+    &-pricing{
+      @include plate-pricing;
+      left: 0px;
+      bottom: -27px;
+    }
+
+  }
+
+  &-background-overlay{
+    display: none;
+  }
+
+}

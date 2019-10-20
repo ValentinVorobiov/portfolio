@@ -1,0 +1,54 @@
+@import './common-mobile.scss';
+
+$rt-margin-default:31px;
+
+.main-repair-types{
+  @include border-box-sizing;
+  padding-top: 58px;
+
+  & .types-of-repair-adv{
+    @include adv-block;
+  }
+
+  .types-of-repair-wrapper{
+    @include plates-wrapper;
+    @include border-box-sizing;
+    padding: 0px 18px;
+
+    .types-of-repair-repair-type{
+      @include plates-plate;
+      width: 100%;
+      margin-bottom: 59px;
+
+      .repair-type-image {
+        @include plate-image;
+        height: 365px;
+        overflow: hidden;
+
+        & img{
+          height: 100%;
+          width: auto;
+        }
+
+      }
+
+      .repair-type-features{
+        @include plate-features-list;
+        padding-bottom: 36px;
+      }
+
+      .repair-type-pricing{
+        @include plate-pricing;
+      }
+
+    }
+
+    .types-of-repair-repair-type:last-child{
+      margin-bottom: 28px;
+    }
+
+
+  }
+
+
+}

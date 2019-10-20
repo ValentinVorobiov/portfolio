@@ -1,0 +1,218 @@
+@import './common-desktop.scss' ;
+
+$biulding-background-height: 222px;
+
+
+.main-location {
+
+  position: relative;
+  @include border-box-sizing;
+  min-height: 500px;
+  margin-top: 132px;
+
+  &-top-background{
+    position: absolute;
+    top: 0; left:0;
+    width: 100%; height: $biulding-background-height;
+    background-color: transparent;
+    color: $dark-theme-highlight-forecolor;
+    @include flexbox;
+    flex-flow: row nowrap;
+    overflow-x: hidden;
+    opacity: 0.8;
+    z-index: -1;
+
+
+    & img {
+      max-height: 100%;
+      margin-right: 50px;
+      opacity: 0.1;
+      z-index: -1;
+    }
+
+  }
+
+  &-bottom-background{
+    position: absolute;
+    top: $biulding-background-height; left:0;
+    width: 100%;
+    height: calc( 100% - #{$biulding-background-height} );
+    overflow: hidden;
+    background-color: #181818;
+    color: $dark-theme-highlight-forecolor;
+    @include flexbox;
+    flex-flow: row nowrap;
+    z-index: -1;
+    opacity: 0.9;
+
+    & img {
+      max-height: 100%; width: auto;
+      opacity: 0.1;
+      z-index: -1;
+    }
+
+  }
+
+  .main-location-wrapper{
+    @include correct-z;
+  }
+
+  .main-location-form-wrapper{
+
+    @include correct-z;
+    @include flexbox;
+    @include auto-margins;
+    justify-content: center;
+    @include border-box-sizing;
+    padding: 34.4px 10.275%;
+    width: 100%;
+    max-width: 883px;
+    background-color: $dark-theme-bgcolor;
+    color: $dark-theme-forecolor;
+    opacity: 1.0;
+
+    .main-location-questions-form{
+      @include flexbox;
+      flex-flow: row wrap;
+      align-items: center;
+      justify-content: center;
+      flex-grow: 2;
+    }
+
+    .questions-form{
+
+    .questions-form-heading{
+      @include font-yeseva;
+      font-size: 20px;
+      line-height: 1.4;
+      text-transform: uppercase;
+      color: $dark-theme-forecolor;
+      width: 100%;
+      text-align: center;
+      margin-bottom: 45.84px;
+    }
+
+      .questions-form-line{
+        @include form-line;
+        width: 100%;
+      }
+
+      .questions-form-line.center-contents{
+        justify-content: center !important;
+      }
+
+
+      .questions-form-group{
+        @include form-group;
+
+        & label{
+          color: $dark-theme-forecolor;
+          opacity: 0.5;
+          padding-bottom: 12px;
+        }
+
+        & input[type=text] {
+          border-bottom-color: rgba(255, 255, 255, 0.15);
+          background-color: transparent;
+          color: $dark-theme-forecolor;
+          margin-bottom: 45px;
+          min-width: 231px;
+          font-size: 18px;
+          line-height: 24px;
+
+          &::placeholder{
+            color: $dark-theme-forecolor;;
+            opacity: 1.0;
+          }
+
+        }
+      }
+
+      .questions-form-group.fullwidth{
+        width: 100%;
+
+        & input[type=text] {
+          width: 100%;
+        }
+      }
+
+      input[type=checkbox] {
+        @include customized-checkbox;
+      }
+
+      .questions-form-submit-button{
+        @include submit-button;
+        min-height: 51px;
+        min-width: 200px;
+        justify-self: center;
+        margin-top: 50.45px;
+      }
+
+    }
+
+  }
+
+  .main-location-text{
+    @include font-yeseva;
+    @include correct-z;
+    font-size: 20px;
+    line-height: 1.4;
+    text-align: center;
+    text-transform: uppercase;
+    color: $dark-theme-button-bgcolor;
+    margin-top: 52px;
+    background: rgba( 0, 0, 0, 0.0 );
+  }
+
+  .main-location-contacts{
+    @include flexbox;
+    @include flexbox-centered-content;
+
+    .contact{
+      @include inline-flexbox;
+      flex-flow: row wrap;
+      align-items: center;
+      justify-content: center;
+      @include border-box-sizing;
+      border-radius: 50%;
+      width: 28px; height: 28px;
+      background-color: $dark-theme-button-bgcolor;
+      transition: 0.35s background ease-in-out;
+      @include correct-z;
+      margin: 0px 7.5px;
+
+      & img{
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+      &:hover{
+        background-color: #33a;
+      }
+
+    }
+    margin-top: 26px;
+    margin-bottom: 43.29px;
+  }
+
+  .main-location-map-wrapper{
+    @include flexbox;
+    @include border-box-sizing;
+    flex-flow: row wrap;
+    align-items: center; justify-content: center;
+    max-width: 925px;
+    padding-bottom: 100px;
+    @include auto-margins;
+
+    & iframe{
+      height: 100%;
+      width: 100%;
+      max-width: 800px;
+      min-height: 465px;
+      opacity: 1.0;
+      @include correct-z;
+    }
+
+  }
+
+}

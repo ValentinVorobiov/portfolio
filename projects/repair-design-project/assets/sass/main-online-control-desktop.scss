@@ -1,0 +1,169 @@
+@import './common-desktop.scss';
+
+$top-background-height: 390px;
+$top-spacing: 92px;
+
+.main-online-control{
+  position: relative;
+  text-align: center;
+  @include border-box-sizing;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  padding-top: 92px;
+
+  .online-control-top_background{
+    position: absolute;
+    top: 0; left:0;
+    width: 100%; height: $top-background-height;
+    background-color: $dark-theme-bgcolor;
+    @include flexbox;
+    flex-flow: row nowrap;
+    overflow-x: hidden;
+    z-index: -1;
+
+    & img {
+      max-height: 100%;
+      margin-right: 50px;
+      opacity: 0.03;
+    }
+  }
+
+  & .online-control-adv{
+
+    @include adv-block;
+
+    &-heading{
+      color: $dark-theme-forecolor;
+      margin-bottom: 12.79px;
+    }
+  }
+
+  & .online-control-slider{
+    width: 100%;
+    max-width: 817px;
+    max-height: 434px;
+    position: relative;
+    margin-bottom: 62.5px;
+
+    @include auto-margins;
+
+    .online-control-slider-contents{
+      @include flexbox;
+      flex-grow: 2;
+      position: relative;
+
+      &::before{
+        content: " ";
+        display: block;
+        position: absolute;
+        width: 100%; height: 100%;
+        background-color: #000000;
+        opacity: 0.8;
+      }
+
+      img{
+        max-width: 100%;
+        height: auto;;
+      }
+
+    }
+
+    .online-control-slider-control{
+      @include flexbox;
+      @include flexbox-centered-content;
+      @include absolute-centered;
+      width: 85px; height: 85px;
+      border-radius: 50%;
+      background-color: $dark-theme-button-bgcolor;
+      transition: 0.35s linear;
+    }
+
+    .online-control-slider-control.active,
+    .online-control-slider-control:hover,
+    .online-control-slider-control:active,
+    .online-control-slider-control:focus {
+      background-color: #3333aa;
+    }
+
+    .online-control-slider-control.control-next {
+      background-image: url( ../img/online-control-next.svg );
+      background-position-x: center;
+      background-position-y: center;
+      background-repeat: no-repeat;
+    }
+
+
+  }
+
+  .online-control-text{
+    @include oct-text;
+  }
+
+
+  .online-control-form-wrapper{
+
+    @include flexbox;
+    @include auto-margins;
+    justify-content: center;
+    width: 100%;
+    max-width: 770px;
+
+
+    .online-control-request-form{
+      flex-grow: 2;
+      @include border-box-sizing;
+      border-right: 1px;
+    }
+
+    .request-form-line{
+      @include form-line;
+    }
+
+    .request-form-line.center-contents {
+      justify-content: center !important;
+    }
+
+    .request-form-group{
+      @include form-group;
+      width: 231px;
+      @include inline-flexbox;
+
+      label{
+        @include ocf-small-font;
+        color: rgba(54, 54, 54, 0.5);
+      }
+
+      input[type="text"]{
+        @include ocf-normal-font;
+        color: $light-theme-forecolor;
+      }
+
+    }
+
+    .request-form-button{
+      @include font-futurademic;
+      @include submit-button;
+      @include inline-flexbox;
+      background-color: $dark-theme-button-bgcolor;
+      width: 200px;
+      height: 51px;
+    }
+
+    .request-form-line > label{
+      @include font-futurabookc;
+      font-size: 16px;
+      line-height: 22px;
+      color: #181818;
+      align-self: center;
+    }
+
+    input[type=checkbox] {
+      @include customized-checkbox;
+    }
+
+
+
+  }
+
+}

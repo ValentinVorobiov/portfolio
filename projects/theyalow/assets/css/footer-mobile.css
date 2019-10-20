@@ -1,0 +1,46 @@
+@media ( max-width : 640px ) {
+
+
+  .theyalow-footer, .page-footer {
+    margin-top: 0px;
+    box-shadow: inset 0px 3px 5px 0px rgba( 0, 0, 0, 75% );
+  }
+
+  .footer-container {
+    height: 43px;
+  }
+
+  .theyalow-footer-logo, .page-footer-logo {
+    height: auto;
+    display: inline-flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .page-footer-logo .theyalow-logo-image-wrapper,
+  .page-footer-logo .logo-image-wrapper {
+    position: relative;
+    height: 33px;
+    width: 33px;
+    margin-left: 64px;
+  }
+
+  .page-footer-logo .theyalow-logo-main-image {
+    max-height: 100%;
+    width: auto;
+  }
+
+  .page-footer-logo .theyalow-logo-sub-image {
+    width: 31px; height: 31px;
+    top: 50%; left: 50%;
+    transform: translateX( -50% ) translateY( -50% );
+  }
+
+  .theyalow-footer-logo-slogan, .page-footer-logo-slogan {
+    font-size: 17px;
+    padding-top: 8px;
+  }
+
+
+}

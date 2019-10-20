@@ -1,0 +1,67 @@
+@import './common-desktop.scss';
+
+.main-design-projects {
+  position: relative;
+  background-color: $dark-theme-bgcolor;
+}
+
+.design-projects{
+
+  .design-projects-wrapper{
+    @include plates-wrapper;
+    align-items: flex-start;
+  }
+
+  .design-projects-adv{
+    @include adv-block;
+
+    &-heading{
+      z-index: 2;
+    }
+
+    &-image{
+      z-index: 2;
+    }
+
+  }
+
+  .design-project-text{
+    @include oct-text;
+
+    max-width: 765px;
+    padding: 34.46px 20px;
+    z-index: 2;
+
+    &::before{
+      display: none;
+    }
+
+  }
+
+  .design-project{
+    @include plates-plate;
+
+    &-image{
+      @include plate-image;
+    }
+
+    &-features{
+      @include plate-features-list;
+      padding-bottom: 49px;
+    }
+
+    &-pricing{
+      @include plate-pricing;
+      bottom: -27px;
+    }
+
+  }
+
+  &-background-overlay{
+    position: absolute;
+    top: 0; left: 0;
+    background-color: $default-body-bgcolor;
+    width: 100%; height: 566px;
+  }
+
+}

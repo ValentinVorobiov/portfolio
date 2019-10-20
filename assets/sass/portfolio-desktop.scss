@@ -1,0 +1,16 @@
+@import './common.scss' ;
+@import './accordion-styles.scss' ;
+@import './personal-data.scss' ;
+@import './projects-desktop.scss' ;
+
+
+  html{
+    font-size: 20px;
+    @include font-roboto;
+  }
+
+  .page-container{
+    @include desktop-container;
+  }
+
+

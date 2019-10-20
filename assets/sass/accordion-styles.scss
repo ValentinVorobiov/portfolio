@@ -1,0 +1,77 @@
+@import './common.scss' ;
+
+$default-accordion-padding: 1rem;
+$default-toggler-bgcolor : #cbccce;
+$default-toggler-forecolor: #3b3a3c;
+
+
+.accordion{
+
+  @include inline-flexbox;
+  @include border-box-sizing;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 600px;
+  min-width: 280px;
+
+  .accordion-toggler {
+    @include inline-flexbox;
+    position: relative;
+    @include border-box-sizing;
+    width: 100%;
+    background-color: $default-toggler-bgcolor;
+    color: $default-toggler-forecolor;
+    cursor: pointer;
+    padding: $default-accordion-padding;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.22s;
+
+    &:hover{
+        background-color: $default-toggler-forecolor;
+        color: $default-toggler-bgcolor;
+    }
+
+  }
+
+  .accordion-contents{
+    @include border-box-sizing;
+    padding: 5px $default-accordion-padding;
+    background-color: transparent;
+    display: none;
+    overflow: hidden;
+  }
+
+  &:not( .active ){
+
+    .accordion-toggler::before{
+        content: "+";
+        position: absolute;
+        right: 1rem;
+    }
+
+    .accordion-contents {
+        display: none;
+        transition: 0.5s;
+    }
+
+  }
+
+  &.active{
+
+    .accordion-toggler::after{
+        content: "—";
+        position: absolute;
+        right: 1rem;
+    }
+
+    .accordion-contents{
+        @include inline-flexbox;
+        width: 100%;
+    }
+
+  }
+
+}

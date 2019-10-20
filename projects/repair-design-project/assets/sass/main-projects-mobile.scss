@@ -1,0 +1,164 @@
+@import './common-mobile.scss';
+
+
+.main-projects{
+  @include border-box-sizing;
+  padding-left: $header-instagram-width;
+  background-color: $dark-theme-bgcolor;
+  color: $dark-theme-forecolor;
+  position: relative;
+
+  .main-projects-container{
+    @include border-box-sizing;
+    padding: 18px 18px;
+  }
+
+  & .project-slider{
+    position: relative;
+    @include flexbox;
+
+    $text-info-width: 40%;
+    $text-info-right-space: 50px;
+    $text-info-left-space : 19.45px;
+
+    .project-slider-captions{
+      display: none;
+    }
+
+    .project-slider-prevnext {
+      @include rdp-slider-prevnext;
+      @include border-box-sizing;
+      width: 100%;
+      padding: 0px 2%;
+
+    }
+
+    & .project-slider-contents{
+      width: 100%;
+      @include flexbox;
+      position: relative;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      flex-wrap: nowrap;
+
+    }
+
+    .project-slider-slide {
+      @include inline-flexbox;
+      @include border-box-sizing;
+      max-height: 100%;
+      min-width: 100%;
+      margin-left: 2%;
+      overflow-y: none;
+      position: relative;
+
+      .project-slider-slide-text {
+        @include inline-flexbox;
+        @include border-box-sizing;
+        width: 100%;
+        flex-flow: column wrap;
+        display: none;
+
+
+        .project-slide-heading{
+          @include flexbox;
+          @include font-yeseva;
+          position: relative;
+          justify-content: center;
+          text-align: center;
+          font-size: 22px;
+          line-height: 1.386;
+          letter-spacing: -0.07em;
+          color: $dark-theme-highlight-forecolor;
+          text-transform: uppercase;
+          width: 100%;
+          margin-bottom: 22px;
+          margin-top: 18px;
+        }
+
+        .project-slide-text {
+          @include font-futurabookc;
+          font-size: 14px;
+          line-height: 1.5848;
+          text-align: center;
+        }
+
+        .project-slider-slide-features{
+          @include border-box-sizing;
+          @include flexbox;
+          margin-top: 380px;
+
+          .project-slide-feature{
+            display: inline-block;
+            @include font-futurabookc;
+            @include border-box-sizing;
+            min-height: 73px;
+            font-size: 15px;
+            line-height: 20px;
+            width: 50%;
+          }
+
+          .project-slide-feature-heading{
+            display: block;
+            @include font-yeseva;
+            text-transform: uppercase;
+            font-size: 18px;
+            line-height: 25px;
+          }
+
+        }
+
+      }
+
+
+      .project-slider-slide-image {
+
+        @include inline-flexbox;
+        justify-content: stretch;
+        max-height: 100%;
+        overflow-y: hidden;
+        height: 340px;
+        position: absolute;
+        top: 27%;
+        width: 100%;
+
+
+        img{
+          max-height: 100%;
+          max-width: 100%;
+        }
+
+      }
+
+    }
+
+    .project-slider-slide.active{
+      margin-left: 0;
+      padding-left: 0;
+      opacity: 1.0;
+      position: relative;
+      z-index: inherit;
+
+      .project-slider-slide-text {
+        display: inline-flex;
+      }
+
+      .project-slider-slide-image {
+
+      }
+
+    }
+
+    .project-slider-controls{
+
+      @include rdp-slider-controls;
+      width: 100%;
+      @include border-box-sizing;
+      padding: 0px 5%;
+
+    }
+
+
+  }
+
+}

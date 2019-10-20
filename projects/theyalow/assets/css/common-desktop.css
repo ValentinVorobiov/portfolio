@@ -1,0 +1,21 @@
+html, body {
+  font-size: 22px;
+}
+
+.text-yellow {
+  color: #f5c506;
+}
+
+.text-white {
+  color: #fff;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.theyalow-container, .page-container{
+  width: 100%;
+  max-width: 1020px;
+  margin: 0 auto;
+}

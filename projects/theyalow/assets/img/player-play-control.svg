@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 27" width="27" height="27">
+	<defs>
+		<image width="27" height="27" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAbCAMAAAC6CgRnAAAAAXNSR0IB2cksfwAAAGBQTFRF9cUG9cUG9cUG9cUG+uKB++WS984t++if++eX988z++eZ99E5++ib99JA++ic+NRG++id+NZN++ie+NdU+Nha++ea+NdV+NZQ+NVK99NE99I999A4988x+uGA++aS9s4sTZqdYwAAACB0Uk5TWl1bXomSaJmVapZsl26YcJhzmXV3l3V0cW9ta2qIkmiwIo8+AAAAY0lEQVR4nLXSRw6AMAxE0UCACR1C7/e/JXukzy6zfbLGsmxMRDEmtpQ4sCVphia5nE1FyaaqZlPTsqnr2eQHNvmRTdPP3Mx9C/Y1K+5ZbXyXHe9SHJbMnRbsuh9L9k0Y+/nrF+lfCw7fWupJAAAAAElFTkSuQmCC"/>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+	</style>
+	<g id="bnner+header">
+		<g id="player">
+			<use id="Shape 8" href="#img1" x="0" y="0" />
+		</g>
+	</g>
+</svg>

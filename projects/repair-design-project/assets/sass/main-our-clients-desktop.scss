@@ -1,0 +1,143 @@
+@import './common-desktop.scss' ;
+
+.main-our-clients{
+
+}
+
+.our-clients{
+
+  $clients-wrapper-width: 85.833%;
+  $clients-client-width: 27.8382%;
+
+  .our-clients-adv{
+    @include adv-block;
+    &-heading{
+      @include correct-z;
+      color: #181818;
+    }
+
+    &-image{
+      @include correct-z;
+    }
+  }
+
+  .our-clients-text{
+    @include oct-text;
+    padding: 0px 0px;
+    @include correct-z;
+    font-size: 20px;
+    line-height: 1.35;
+
+    &::before{
+      display: none;
+    }
+
+  }
+
+  .our-clients-wrapper{
+    @include plates-wrapper;
+    @include auto-margins;
+    @include border-box-sizing;
+    width: $clients-wrapper-width;
+    padding-left: 2px;
+
+  }
+
+  .our-clients-client{
+    @include plates-plate;
+    @include correct-z;
+    width: $clients-client-width;
+    @include font-futurabookc;
+    font-size: 15px;
+    line-height: 180%;
+    color: #959595;
+    position: relative;
+
+  }
+
+  .client{
+    background: $dark-theme-forecolor;
+    box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.04);
+    min-height: 428px;
+
+    .client-photo-name-wrapper{
+      @include flexbox;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 20px 20px;
+      color: #181818;
+      @include font-yeseva;
+      font-size: 18px;
+      line-height: 1.2778;
+
+      .client-photo{
+        @include inline-flexbox;
+        max-width: 76px; max-height: 76px;
+        border-radius: 50%;
+      }
+
+      .client-name{
+        @include inline-flexbox;
+        margin-left: 23px;
+        word-break: break-word;
+      }
+
+
+    }
+
+    .client-review{
+      @include border-box-sizing;
+      padding: 0px 20px;
+    }
+
+    .client-repair-data{
+      @include inline-flexbox;
+      justify-self: start;
+      text-transform: uppercase;
+      width: 294px;
+      max-width: 100%;
+      min-height: 54px;
+      position: relative;
+      background-color: $dark-theme-button-bgcolor;
+      transform: translateY( 50% );
+      box-shadow: 5px 5px 20px rgba(227, 184, 115, 0.5);
+
+      .client-repair-data-square,
+      .client-repair-data-term{
+        @include font-yeseva;
+        @include border-box-sizing;
+        display: inline-flex;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: space-evenly !important;
+        padding: 0px 10px;
+        color: $dark-theme-forecolor;
+        font-size: 17px;
+        line-height: 24px;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: space-between;
+
+        & img{
+          display: inline-block;
+        }
+
+      }
+
+      .client-repair-data-square{
+        border: 0.75px solid $dark-theme-forecolor;
+        width: 45.92%
+      }
+
+      .client-repair-data-term{
+        flex-grow: 2;
+      }
+
+
+
+    }
+
+  }
+
+}

@@ -1,0 +1,243 @@
+@import './common-desktop.scss' ;
+
+
+.main-repair-stages{
+  margin-top: 124px;
+
+}
+
+.repair-stages {
+
+  .repair-stages-wrapper {
+    @include border-box-sizing;
+    @include flexbox;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    overflow-x: hidden;
+    padding-right: 100px;
+    min-height: 725.44px;
+  }
+
+  .repair-stages-stages{
+    @include flexbox;
+    @include border-box-sizing;
+    position: relative;
+    height: 100%;
+    flex-grow: 2;
+
+    .rounded-background{
+      @include inline-flexbox;
+      @include border-box-sizing;
+      width: 50%; height: 50%;
+      min-height: 600px; min-width: 600px;
+      position: relative;
+      left: -30%;
+      background-color: transparent;
+      border-radius: 50%;
+      background-image: url( ../img/repair-stages-background.svg);
+      background-repeat: no-repeat;
+      background-position-y: -20px;
+      background-position-x: 100px;
+      overflow-x: visible;
+      background-clip: padding-box;
+
+      &::after{
+        position: absolute;
+        content: " ";
+        width: 100%; height: 100%;
+        top: 0; left: 10;
+        z-index: -1;
+        border-radius: 50%;
+        background:
+          linear-gradient(#fff,#fff) padding-box,
+          linear-gradient(to right, #fff 0%, #fff 20%, #fff 20%, #E3B873 100%) border-box;
+        border: 3px solid transparent;
+      }
+
+    }
+
+    .repair-stages-list{
+      position: absolute;
+      width: 100%;
+      left: 15%;
+      top: 0;
+      height: 100%;
+      @include flexbox;
+      flex-flow: column wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      @include border-box-sizing;
+      padding: 10% 0%;
+      list-style-type: none;
+    }
+
+    .repair-stages-list-item {
+
+      position: relative;
+      font-weight: bold;
+      background-color: $dark-theme-forecolor;
+      display: flex;
+      align-items: center;
+      overflow-x: visible;
+      @include border-box-sizing;
+      padding: 10px 0px;
+
+      .list-item-number{
+        display: inline-flex;
+        align-items: center;
+        width: 42px; height: 42px;
+        margin-right: 17px;
+        box-shadow: 0px 5px 15px rgba(227, 184, 115, 0.15);
+        background-color: $dark-theme-button-bgcolor;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        color: $dark-theme-forecolor;
+        @include font-yeseva;
+        font-weight: normal;
+
+
+      }
+
+      .list-item-text{
+        display: inline-flex;
+        align-items: center;
+        @include font-futurademic;
+        font-size: 18px;
+        line-height: 1.66667;
+        color: $light-theme-forecolor;
+      }
+
+    }
+
+    .repair-stages-list-item:nth-child( 1 ){
+      margin-left: 23%;
+    }
+
+    .repair-stages-list-item:nth-child( 2 ){
+      margin-left: 31%;
+    }
+
+    .repair-stages-list-item:nth-child( 3 ){
+      margin-left: 31%;
+    }
+
+    .repair-stages-list-item:nth-child( 4 ){
+      margin-left: 23%;
+    }
+
+  }
+
+  .repair-stages-form-wrapper {
+    @include flexbox;
+    @include border-box-sizing;
+    width: 509px;
+    height: 100%;
+    align-items: flex-end;
+    @include font-futurademic;
+    font-size: 20px;
+    line-height: 25px;
+    margin-left: 54px;
+    color: $dark-theme-forecolor;
+
+    .measure-request-form{
+      flex-grow: 2;
+      text-align: right;
+      background-color: $dark-theme-bgcolor;
+      padding: 28px 49px;
+
+      .request-measurer-form-heading{
+        text-align: center;
+        @include border-box-sizing;
+        padding: 0px 55px;
+        margin-bottom: 39px;
+        text-align: center;
+
+      }
+
+      .request-form-group{
+        @include form-group;
+        margin-bottom: 29px;
+        text-align: left;
+
+        label{
+          color: rgba(255, 255, 255, 0.5);
+        }
+
+        input[type=text]{
+          color: $dark-theme-forecolor;
+          background-color: transparent;
+          border-bottom: 1px solid;
+          border-bottom-color: rgba( 255, 255, 255, 0.15 );
+
+          &::placeholder {
+            color: $dark-theme-forecolor;
+            opacity: 1.0;
+          }
+        }
+
+      }
+
+      input[type=checkbox] {
+        @include customized-checkbox;
+      }
+
+      .request-form-line--left-aligned{
+        text-align: left;
+        margin-top: -13px;
+      }
+
+      .request-form-button{
+        @include submit-button;
+        @include inline-flexbox;
+        justify-self: flex-end;
+        min-height: 51px;
+        min-width: 213px;
+        margin-top: 39px;
+        box-shadow: 0px 5px 15px rgba(227, 184, 115, 0.15);
+      }
+
+    }
+
+    .measure-request-savings-wrapper{
+      width: 100%;
+      @include flexbox;
+      @include border-box-sizing;
+      @include flexbox-centered-content;
+      padding: 0px 27.11px;
+      margin-top: 38px;
+      color: $dark-theme-highlight-forecolor;
+
+      .measure-request-savings-image{
+      @include inline-flexbox;
+      @include border-box-sizing;
+      @include flexbox-centered-content;
+      height: 72px; width: 72px;
+      background-color: $dark-theme-highlight-forecolor;
+      border-radius: 50%;
+        img{
+          width: 40px; height: auto;
+        }
+      }
+
+      .measure-request-savings-text{
+        @include inline-flexbox;
+        @include border-box-sizing;
+        @include flexbox-centered-content;
+        padding-left: 25px;
+        max-width: 350px;
+        @include font-futurademic;
+        font-size: 20px;
+        line-height: 25px;
+        text-shadow: 0px 3px 10px rgba(227, 184, 115, 0.15);
+      }
+
+    }
+
+  }
+
+
+
+}
+

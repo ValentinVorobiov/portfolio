@@ -1,0 +1,19 @@
+@import './fonts.scss' ;
+
+@media ( min-width: 300px ) and ( max-width: 640px ){
+
+  @import './common-mobile.scss' ;
+  @import './header-mobile.scss' ;
+  @import './main-mobile.scss' ;
+  @import './footer-mobile.scss' ;
+
+}
+
+@media ( min-width: 641px ) and ( max-width: 2048px ) {
+  @import './common-desktop.scss' ;
+  @import './header-desktop.scss' ;
+  @import './main-desktop.scss' ;
+  @import './footer-desktop.scss' ;
+
+}
+

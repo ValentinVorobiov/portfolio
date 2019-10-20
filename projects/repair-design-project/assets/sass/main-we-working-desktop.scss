@@ -1,0 +1,187 @@
+@import './common-desktop.scss' ;
+
+.main-we-working{
+  background-color: $dark-theme-bgcolor;
+
+
+  .we-working-wrapper{
+    @include border-box-sizing;
+    padding-left: $header-instagram-width;
+    padding-right: 100px;
+
+  }
+
+}
+
+.we-working-slider{
+  @include rdp-slider;
+  color: $dark-theme-forecolor;
+
+  &-slogan{
+    @include rdp-slider-slogan;
+
+    .we-working-heading{
+      margin-bottom: 0px;
+    }
+
+  }
+
+  .we-working-slider-top-text{
+    @include font-futurademic;
+    font-size: 15px;
+    line-height: 1.4;
+    margin-bottom: 18px;
+    color: $dark-theme-forecolor;
+    text-transform: uppercase;
+  }
+
+  .we-working-heading{
+    @include flexbox;
+    @include font-yeseva;
+    position: relative;
+    font-size: 27px;
+    line-height: 37px;
+    letter-spacing: -0.07em;
+    color: $dark-theme-highlight-forecolor;
+    text-transform: uppercase;
+    min-width: 253px;
+    margin-bottom: 30px;
+    text-align: left;
+
+    &::after {
+      @include border-box-sizing;
+      position: absolute;
+      right:-29%; bottom: 13px;
+      content: "-";
+      height: 1px;
+      width: 92px;
+      color: transparent;
+      background-color: $dark-theme-highlight-forecolor;
+      align-self: flex-end;
+    }
+
+  }
+
+  .we-working-slider-slide{
+    @include rdp-slider-slide;
+    max-height: 685px;
+    overflow-y: hidden;
+  }
+
+  .we-working-slider-slide-text {
+    @include rdp-slide-text;
+
+    .we-working-slider-counter{
+      @include font-yeseva;
+      font-size: 18px;
+      line-height: 25px;
+      text-transform: uppercase;
+    }
+
+    .we-working-slide-text {
+      font-size: 15px;
+
+      & p{
+      @include font-futurabookc;
+      line-height: 25px;
+      }
+
+      & .we-working-slide-heading {
+        @include font-yeseva;
+        line-height: 23px;
+        text-transform: uppercase;
+        color: $dark-theme-button-bgcolor;
+        margin-top: 22px;
+        margin-bottom: 16px;
+      }
+
+    }
+
+
+
+  }
+
+  .we-working-slider-slide-image {
+    @include rdp-slide-image;
+  }
+
+  .injected-slides-counter{
+    @include flexbox;
+    flex-flow: row wrap;
+    align-items: space-between;
+    justify-content: space-between;
+    font-size: 15px;
+
+    .injected-counter-item {
+      display: inline-flex;
+      @include border-box-sizing;
+      flex-flow: column wrap;
+      width: 30%;
+      margin-bottom: 36px;
+      opacity: 0.3;
+      cursor: pointer;
+
+      &-number{
+        @include font-yeseva;
+        position: relative;
+        display: inline-block;
+        line-height: 21px;
+        text-transform: uppercase;
+        margin-bottom: 17px;
+
+        &::after{
+          display: block;
+          content: " ";
+          width: 16px; height: 1px;
+          color: $dark-theme-button-bgcolor;
+          background-color: $dark-theme-button-bgcolor;
+          position: absolute;
+          left: 0px; bottom: -4px;
+        }
+
+      }
+
+      &-text{
+        @include flexbox;
+        width: 100%;
+        @include border-box-sizing;
+        padding-right: calc( 100% - 125px );
+
+      }
+
+      &.active,
+      &:hover,
+      &:focus,
+      &:active{
+        opacity: 1.0;
+      }
+
+    }
+
+    .injected-counter-item:nth-child( 3n-2 ){
+      padding-left: 0px;
+      padding-right: calc( 30% - 128px );
+    }
+
+    .injected-counter-item:nth-child( 3n-1 ){
+      padding-left: calc( 0.5*( 30% - 128px ) );
+      padding-right: calc( 0.5*( 30% - 128px ) );
+    }
+
+    .injected-counter-item:nth-child( 3n ){
+      padding-left: calc( 30% - 100px );
+    }
+
+
+
+
+
+  }
+
+  &-controls{
+    @include rdp-slider-controls;
+    position: absolute;
+    left: 0; bottom: 15%;
+  }
+
+}

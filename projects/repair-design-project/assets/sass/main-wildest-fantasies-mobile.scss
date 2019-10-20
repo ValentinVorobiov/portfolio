@@ -1,0 +1,114 @@
+@import './common-mobile.scss';
+
+.main-wildest-fantasies {
+  @include flexbox;
+  @include border-box-sizing;
+  width: 100%;
+  position: relative;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-x: hidden;
+
+  .wildest-fantasies-background {
+    position: absolute;
+    width: calc(  100% + 18px );
+    height: 35%;
+    overflow-y: hidden;
+    bottom: 0;
+    z-index: -1;
+    color: $dark-theme-bgcolor;
+
+    img{
+      display:none;
+    }
+
+    &::after{
+      content: " ";
+      @include flexbox;
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(120.96deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.9) 100%);
+    }
+
+    background-color: linear-gradient(120.96deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.9) 100%);
+  }
+
+  .wildest-fantasies-content-wrapper {
+    z-index: 4;
+    @include auto-margins;
+    height: 100%;
+    max-width: 100%;
+    overflow-y: visible;
+    @include border-box-sizing;
+    @include flexbox;
+    flex-flow: row wrap;
+    justify-content: stretch;
+    padding: 0px 18px;
+
+    .wildest-fantasies-list{
+      @include inline-flexbox;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+
+      .wildest-fantasies-heading{
+        @include font-yeseva;
+        font-size: 22px;
+        line-height: 1.386;
+        color: $dark-theme-button-bgcolor;
+        width: 100%;
+        @include auto-margins;
+        margin-bottom: 24px;
+      }
+
+
+      .wildest-fantasies-fantasy{
+        display: none;
+      }
+
+    }
+
+    .wildest-fantasies-gallery{
+      @include flexbox;
+      @include border-box-sizing;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      width: 100%;
+      height: 242px;
+      overflow-x: hidden;
+      overflow-y: hidden;
+
+      .wildest-fantasies-gallery-line{
+        display: inline-block;
+        height: 100%;
+        flex-flow: row nowrap;
+        align-items: center;
+      }
+
+      .gallery-line-image{
+        display: inline-block;
+        width: 100%;
+
+        img{
+          width: 340px;
+          height: auto;
+        }
+
+        &:last-child{
+          margin-bottom: 0px;
+        }
+
+      }
+
+    }
+
+    .wildest-fantasies-gallery-prevnext {
+      @include rdp-slider-prevnext;
+
+    }
+
+  }
+
+}

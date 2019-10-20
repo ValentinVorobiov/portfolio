@@ -1,0 +1,303 @@
+@import './common-mobile.scss';
+
+$default-margin: 16px;
+$top-line-height: 43px;
+$top-line-vpadding: 18px;
+
+.page-header {
+  background-color: $dark-theme-bgcolor;
+  background-image: none;
+  color: $dark-theme-forecolor;
+  @include default-font;
+  @include border-box-sizing;
+
+  & .header-container {
+    @include border-box-sizing;
+    @include flexbox;
+    align-items: center;
+    justify-content: stretch;
+  }
+
+  & .header-container .page-header-top {
+    @include flexbox;
+    @include flexbox-space-between;
+    @include border-box-sizing;
+    width: 100%;
+    margin-bottom: 1px;
+    min-height: $top-line-height;
+    padding: 0px $top-line-vpadding;
+    overflow-y: visible;
+
+    & .page-header-title,
+    & .page-header-nav,
+    & .page-header-phone,
+    & .page-header-callrequest {
+      @include inline-flexbox;
+      text-transform: uppercase;
+    }
+
+    & .page-header-title {
+      justify-self: flex-start;
+      float: left;
+      @include font-futurademic;
+      font-size: 12px;
+      line-height: 14px;
+      text-transform: uppercase;
+      color: $dark-theme-button-bgcolor;
+    }
+
+    & .page-header-title,
+    & .page-header-phone {
+      color: $dark-theme-highlight-forecolor;
+      @include font-futurademic;
+      font-size: 12px;
+      line-height: 14px;
+    }
+
+    & .page-header-phone {
+      color: $dark-theme-forecolor;
+    }
+
+    & .page-header-callrequest {
+      display: none;
+    }
+
+    & .page-header-nav-menu{
+
+      @include flexbox;
+      position: absolute;
+      top: 43px; left: 18px;
+      visibility: hidden;
+
+      & .nav-menu-item a{
+        color: $dark-theme-forecolor;
+        margin-right: 47.09px;
+      }
+
+      & .nav-menu-item.active a,
+      & .nav-menu-item:hover a,
+      & .nav-menu-item:active a,
+      & .nav-menu-item.focus a {
+        color: $dark-theme-highlight-forecolor;
+      }
+
+    }
+
+  }
+
+  & .page-header-content {
+    @include flexbox;
+    position: relative;
+    width: 100%;
+    margin-bottom: 1px;
+
+    & .page-header-main{
+      flex-grow: 2;
+      @include flexbox;
+      @include border-box-sizing;
+      @include flexbox-centered-content;
+      position: relative;
+      margin-left: 0px;
+      padding: 0px 18px;
+      min-height: 480px;
+
+      & .header-main-background-wrapper{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        flex-grow: 2;
+        overflow: hidden;
+
+        & img {
+          height: 100%;
+          width: auto;
+          z-index: -1;
+        }
+      }
+
+      & .header-main-background-wrapper::after {
+        content: "";
+        @include flexbox;
+        z-index: 2;
+        position: absolute;
+        top: 0px; left: 0px;
+        width: 100%; height: 100%;
+        background-color: #000;
+        opacity: 0.7;
+      }
+
+      & .header-main-text-wrapper {
+        align-self: center;
+        @include correct-z;
+        width: 100%;
+
+        & .header-main-heading {
+          @include font-yeseva;
+          font-weight: bold;
+          text-transform: uppercase;
+          font-size: 23px;
+          line-height: 1.3283;
+        }
+
+        & .header-main-description{
+          @include font-futurademic;
+          margin-top: $default-margin;
+          margin-bottom: $default-margin;
+          font-size: 18px;
+          line-height: 1.3584;
+
+        }
+
+      }
+
+    }
+
+    & .header-main-controls{
+      @include flexbox;
+      @include border-box-sizing;
+      flex-flow: row wrap;
+      align-items: flex-start;
+      justify-content: stretch;
+      padding: $default-margin 0px;
+
+      & .header-main-button{
+        @include font-demic;
+        display: inline-block;
+        font-size: 13px;
+        line-height: 15px;
+        padding: 19px 0px;
+        text-transform: uppercase;
+        text-align: center;
+        color: $dark-theme-forecolor;
+        box-shadow: 0px 5px 15px rgba(227, 184, 115, 0.3);
+        border-radius: 2px;
+        border: 1px solid $dark-theme-forecolor;
+        width: calc( 100% - 2px );
+        margin-top: 12px; margin-bottom: 12px;
+        cursor: pointer;
+      }
+
+      & .header-main-button:hover,
+      & .header-main-button:focus,
+      & .header-main-button:active,
+      & .header-main-button.active {
+        background-color: #E3B873;
+        border-color: #E3B873;
+      }
+
+    }
+
+    & .page-header-instagram-wrapper {
+      display: none;
+    }
+
+    .header-main-app-form-wrapper{
+      @include border-box-sizing;
+
+      background-color: rgba( 24, 24, 24, 0.75 );
+      @include popup-zindex;
+      position: absolute;
+      left: $header-instagram-width;
+      top: 0px;
+      height: calc( 100% - 50px );
+      width: calc( 100% - #{ $header-instagram-width } );
+      @include flexbox;
+      @include flexbox-centered-content;
+
+      .header-main-app-form {
+        @include flexbox;
+        flex-flow: column wrap;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        max-width: 509px;
+        min-height: 506px;
+        @include popup-zindex;
+        @include border-box-sizing;
+        padding: 0px 49px;
+        padding-top: 33px;
+        padding-bottom: 27px;
+        background-color: $dark-theme-bgcolor;
+
+      }
+
+      .app-form{
+
+        .app-form-close{
+          @include flexbox;
+          flex-flow: row wrap;
+          align-items: center; justify-content: center;
+          width: 28px; height: 28px;
+          position: absolute;
+          right: 12px;
+          top: 12px;
+
+          & img{
+            max-height: 100%;
+            width: auto;
+          }
+
+        }
+
+        .app-form-heading{
+          @include font-yeseva;
+          font-size: 19px;
+          line-height: 26px;
+          text-align: center;
+        }
+
+        input[ type=checkbox ]{
+          @include customized-checkbox;
+        }
+
+        .app-form-line{
+          @include form-line;
+          @include popup-zindex;
+
+          & .app-form-group{
+            @include form-group;
+            width: 100%;
+            @include popup-zindex;
+
+            & label {
+              opacity: 0.5;
+            }
+
+            & input[type=text] {
+              width: 100%;
+              background-color: transparent;
+              color: $dark-theme-forecolor;
+              font-size: 18px;
+              line-height: 25px;
+
+              &::placeholder{
+                color: $dark-theme-forecolor;
+                opacity: 1.0;
+              }
+
+            }
+
+          }
+        }
+
+        .app-form-submit-button{
+          @include submit-button;
+          width: 100%;
+          min-height: 51px;
+          margin-top: 39px;
+          align-self: flex-end;
+        }
+
+      }
+
+    }
+
+    .header-main-app-form-wrapper:not( .active ){
+      display: none;
+    }
+
+
+  }
+
+
+}

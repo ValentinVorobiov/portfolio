@@ -1,0 +1,83 @@
+@import './common-desktop.scss';
+
+$rt-margin-default:31px;
+
+.main-repair-types{
+  @include border-box-sizing;
+  padding-top: 100px;
+  margin-bottom: $rt-margin-default;
+
+  & .types-of-repair-adv{
+    @include adv-block;
+  }
+
+  .types-of-repair-wrapper{
+    @include plates-wrapper;
+
+    .types-of-repair-repair-type{
+      width: 32.1%;
+      min-height: 608px;
+      @include border-box-sizing;
+      position: relative;
+      @include inline-flexbox;
+      flex-flow: column wrap;
+
+      .repair-type-image {
+        height: 392px;
+        overflow: hidden;
+
+        & img {
+          max-width: 100%;
+        }
+      }
+
+      .repair-type-features{
+        margin-left: $rt-margin-default; margin-right: $rt-margin-default;
+        background-color: $default-body-bgcolor;
+        @include border-box-sizing;
+        padding: 25px $rt-margin-default;
+        @include font-futurabookc;
+        font-size: 15px;
+        line-height: 25px;
+        color: #959595;
+        list-style-type: disc;
+        position: relative;
+        margin-top: -127px;
+        min-height: 286px;
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.03);
+
+        & > li {
+          list-style-position: inside;
+        }
+
+        .repair-type-features-heading{
+          @include font-yeseva;
+          font-size: 18px;
+          line-height: 25px;
+          color: $light-theme-forecolor;
+          margin-bottom: 13px;
+        }
+
+      }
+
+      .repair-type-pricing{
+        position: absolute;
+        left: $rt-margin-default;
+        @include font-yeseva;
+        @include border-box-sizing;
+        @include submit-button;
+        bottom: 0px;
+        font-size: 18px;
+        line-height: 25px;
+        min-width: 228px;
+        min-height: 54px;
+        box-shadow: 5px 5px 10px rgba(227, 184, 115, 0.3);
+      }
+
+    }
+
+
+  }
+
+
+}

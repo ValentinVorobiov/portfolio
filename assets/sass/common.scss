@@ -1,0 +1,120 @@
+@import './fonts.scss' ;
+
+$darktheme-forecolor: #cbccce;
+$darktheme-bgcolor: #3b3a3c;
+
+@mixin auto-margins {
+    margin-left: auto; margin-right: auto;
+  }
+
+@mixin desktop-container{
+    width: 100%;
+    max-width: 1440px;
+    @include auto-margins;
+}
+
+@mixin cancel-outline{
+  outline: none;
+  outline-color: transparent;
+  border:0;
+}
+
+@mixin font-candara{
+  font-family: 'Candara';
+}
+
+@mixin font-roboto {
+  font-family: 'Roboto';
+}
+
+@mixin pf-heading{
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+}
+
+@mixin pf-slider-prevnext-z{
+  z-index: 16;
+}
+
+  @mixin scrolldown{
+
+    position: fixed;
+    @include border-box-sizing;
+    @include inline-flexbox;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 48px; padding-right: 49px;
+    z-index: 50;
+    left: 0px;
+    bottom: 50px;
+    @include border-box-sizing();
+    padding: 34px 48px;
+    width: 247px;
+    text-transform: uppercase;
+    @include font-yeseva;
+    background-color: $dark-theme-bgcolor;
+    color: $dark-theme-forecolor;
+
+    & > span {
+      text-transform: uppercase;
+      line-height: 138.6%;
+    }
+
+  }
+
+  @mixin correct-z{
+    z-index: 2;
+  }
+
+  @mixin border-box-sizing {
+    box-sizing: border-box; -webkit-box-sizing: border-box; -ms-box-sizing: border-box;
+    -moz-box-sizing: border-box; -o-box-sizing: border-box;
+  }
+
+  @mixin inline-flexbox {
+    display: inline-flex;
+    flex-flow: row wrap;
+  }
+
+  @mixin inline-col-flexbox {
+    display: inline-flex;
+    flex-flow: column wrap;
+  }
+
+  @mixin flexbox {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  @mixin absolute-centered {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translateX( -50% ) translateY( -50% );
+  }
+
+  @mixin column-flexbox {
+    display: flex;
+    flex-flow: column wrap;
+  }
+
+  @mixin flexbox-centered-content {
+    align-items: center;
+    justify-content: center;
+  }
+
+  @mixin flexbox-space-between {
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  @mixin flexbox-space-evenly {
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  @mixin rotate90{
+    transform: rotate( 90deg );
+  }
+
