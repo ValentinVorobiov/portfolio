@@ -5,7 +5,7 @@
 let routes = [
   { name : 'Home', iPath : '/', realPath : './portfolio.html', } ,
   { name : 'TheyAlow Project', iPath : '/projects/theyalow/', realPath : './projects/theyalow/index.html', } ,
-  { name : 'Repair Design Project', iPath : './projects/repair-design-project/', realPath : '/projects/repair-design-project/index.html', } ,
+  { name : 'Repair Design Project', iPath : './projects/repair-design-project/', realPath : './projects/repair-design-project/index.html', } ,
 ]
 
 const findRoute = function( aString ){
@@ -120,5 +120,17 @@ let toggleContentWrapper = function( aButton ){
   checkTogglerButton();
 
 }
+
+let resizeTimer = null;
+
+window.addEventListener( 'onresize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(
+    () => {
+      checkTogglerButton();
+    },
+    350
+  );
+} );
 
 
