@@ -1,0 +1,105 @@
+@import './common.scss';
+
+.page-header__personal-data{
+
+  width: 100%;
+
+}
+
+.personal-data{
+
+  & .page-container{
+    @include flexbox;
+    @include border-box-sizing;
+    @include flexbox-centered-content;
+    width: 100%;
+    padding:1rem 0rem;
+  }
+
+  .personal-data__photo{
+
+    @include inline-flexbox;
+    align-items: center; justify-content: center;
+    overflow: hidden;
+    width: 300px; height: 300px;
+    max-width: 80vw; max-height: 80vw;
+    border-radius: 50%;
+
+    img{
+        max-width: 100%; max-height: 100%;
+        // border-radius: 50%;
+    }
+
+  }
+
+  .personal-data__wrapper{
+    @include inline-flexbox;
+    @include border-box-sizing;
+    @include flexbox-centered-content;
+    width: 100%;
+    // flex-grow: 2;
+    padding: 1rem;
+  }
+
+  .personal-data__name{
+    @include pf-heading-mobile;
+  }
+
+  .personal-data__contacts{
+      @include inline-flexbox;
+      @include border-box-sizing;
+      @include flexbox-centered-content;
+      flex-grow: 2;
+      padding: 0.5rem 0.5rem;
+  }
+
+  .contacts-list{
+
+    & .contacts-list__contact{
+      @include inline-flexbox;
+      @include border-box-sizing;
+      width: 30px; height: 30px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin-left: 0.5rem; margin-right: 0.5rem;
+
+      &:first-child{
+        margin-left: 0;
+      }
+
+      &:last-child{
+        margin-right: 0;
+      }
+
+    }
+
+    & .contacts-list__contact--github{
+      background-image: url( ../img/github-logo.svg );
+    }
+
+    & .contacts-list__contact--contact-gsm{
+      background-image: url( ../img/velcom-icon.svg );
+    }
+
+    & .contacts-list__contact--contact-viber {
+      background-image: url( ../img/viber-icon.svg );
+    }
+
+    & .contacts-list__contact--contact-whatsapp {
+      background-image: url( ../img/whatsapp-icon.svg );
+    }
+
+    & .contacts-list__contact--contact-skype {
+      background-image: url( ../img/skype-icon.svg );
+    }
+
+    & .contacts-list__contact--contact-email {
+      background-image: url( ../img/email-icon.svg );
+    }
+
+  }
+
+}
+
+
+

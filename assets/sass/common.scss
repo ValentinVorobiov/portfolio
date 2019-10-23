@@ -34,6 +34,11 @@ $darktheme-bgcolor: #3b3a3c;
   letter-spacing: .02em;
 }
 
+@mixin pf-heading-mobile {
+  @include pf-heading;
+  font-size: 1.2rem;
+}
+
 @mixin pf-slider-prevnext-z{
   z-index: 16;
 }

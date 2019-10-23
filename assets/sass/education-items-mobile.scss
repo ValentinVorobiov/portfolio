@@ -1,0 +1,108 @@
+@import './common.scss' ;
+
+$date-range-width: 5rem;
+$progress-mark-size: 15px;
+
+ .page-main__education{
+   @include border-box-sizing;
+   @include font-candara;
+   margin-top: 1rem;
+   margin-bottom: 1rem;
+
+ }
+
+ .main-education{
+
+  .main-education__header{
+    @include pf-heading-mobile;
+    // text-transform: uppercase;
+  }
+
+  .main-education__contents{
+    padding: 0.45rem 0rem;
+  }
+
+  .main-education__list{
+    display: flex; flex-flow: row wrap;
+    align-items: stretch; justify-content: space-evenly;
+  }
+
+  .education-list{
+
+    .education-list__item{
+      @include inline-flexbox;
+      @include border-box-sizing;
+      flex-flow: column wrap;
+      align-items: center;
+      // justify-content: space-between;
+      justify-content: space-evenly;
+      width: 29%;
+      min-width: 300px;
+      min-height: $date-range-width;
+      padding-left: $date-range-width;
+      padding-top: 1.1rem; padding-bottom: 0.7rem;
+      position: relative;
+      border-bottom: 2px solid #101010;
+      margin-bottom: 1.5rem;
+
+      &::before{
+        width: $progress-mark-size;
+        height: $progress-mark-size;
+        content: " ";
+        position: absolute;
+        top: 5px; left: 5px;
+        z-index: 2;
+        background-size: contain;
+      }
+
+      &:not( .in-progress )::before{
+        background-image: url(../img/checkmark-icon.svg);
+
+      }
+
+      &.in-progress::before{
+        border-radius: 50px;
+        background-color: red;
+      }
+
+      .date-range{
+        @include flexbox;
+        flex-flow: row wrap;
+        @include flexbox-centered-content;
+        position: absolute;
+        width: $date-range-width;
+        line-height: 1.3;
+        top: 0; left: 0;
+        height: 100%;
+        @include font-roboto;
+        font-weight: bold;
+      }
+
+      .edu-name {
+        @include border-box-sizing;
+        @include flexbox;
+        justify-content: flex-end;
+        text-align: right;
+        width: 100%;
+        margin-bottom: 0.5rem;
+      }
+
+      .edu-target{
+        width: 80%;
+        @include auto-margins;
+        text-align: center;
+        @include font-roboto;
+        margin-top: 1rem;
+        padding: 0.4rem;
+        background-color: #a81616;
+        color: #fff;
+        justify-self: flex-end;
+        align-self: flex-end;
+      }
+
+    }
+
+  }
+
+
+ }

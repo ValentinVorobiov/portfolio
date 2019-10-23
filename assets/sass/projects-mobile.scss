@@ -1,13 +1,13 @@
 @import './common.scss' ;
 
-$control-width: 60px;
-$controls-prevnext-size: 40px;
+$control-width: 0px;
+$controls-prevnext-size: 0px;
 $controls-indicator-size : 1.75rem;
 $controls-indicator-color : #6c23b6;
 $controls-indicator-active: #2387b6;
 
 .page-main__projects{
-  max-height: 75vw;
+  min-height: 80vw;
   // @include flexbox;
   // flex-flow: column wrap;
   // justify-content: stretch;
@@ -31,10 +31,6 @@ $controls-indicator-active: #2387b6;
   .main-projects__slider, .tns-outer{
     @include border-box-sizing;
     position: relative;
-    // width: calc( 100% - 2*#{ $control-width } ) !important;
-    // margin-left: auto; margin-right: auto;
-
-
 
     .slider__item{
       @include inline-flexbox;
@@ -52,90 +48,18 @@ $controls-indicator-active: #2387b6;
     // Controls and indicators styling
 
     .tns-controls{
-      position: absolute;
-      top: calc( 50% - 0.5*#{ $controls-prevnext-size } );
-      width: 100%;
-      @include pf-slider-prevnext-z;
-      @include flexbox;
-      flex-flow: row wrap;
-      justify-content: space-between;
-      @include cancel-outline;
 
-      button{
-        @include cancel-outline;
-        @include pf-slider-prevnext-z;
-        color: transparent;
-        width: $controls-prevnext-size;
-        height: $controls-prevnext-size;
-        background-color: orange;
-        border-radius: 50%;
-        position: relative;
-        border:0;
-
-        &::before{
-          position: absolute;
-          @include flexbox;
-          align-items: center;
-          justify-content: center;
-          left: 0; top: -2px;
-          height: 100%; width:100%;
-          text-align: center;
-          font-size: 1.5em; font-weight: bold;
-          content: " ";
-          color: #fff;
-        }
-      }
-
-      button[ data-controls=prev ]{
-        &::before{
-          content: "<";
-        }
-      }
-
-      button[ data-controls=next ]{
-        &::before{
-          content: ">";
-        }
-      }
+      display: none !important;
 
     }
 
     .tns-nav{
-      position: absolute;
-      bottom: 10px;
-      width: 80%;
-      left: calc( 7.5% +  1.0*#{ $control-width } );
-      min-height: 30px;
-      @include flexbox;
-      flex-flow: row wrap;
-      align-items: center; justify-content: center;
-      // padding: 5px calc( 1.0*#{ $control-width } );
-
-      button{
-        @include inline-flexbox;
-        @include pf-slider-prevnext-z;
-        @include cancel-outline;
-        width: $controls-indicator-size;
-        height: $controls-indicator-size;
-        margin-right: 0.5rem; margin-bottom: 0.5rem;
-        border: 2px solid #fff;
-        border-radius: 15%;
-        background-color: $controls-indicator-color;
-        transition: background 0.25s linear;
-      }
-
-      button.tns-nav-active, button:hover, button:focus, button:active{
-        background-color : $controls-indicator-active;
-      }
-
-      button.tns-nav-active:hover{
-        background-color: #d13c1a
-      }
-
+      display: none;
     }
 
 
   }
+
 
   $descwrapper-height : 2.2rem;
   $descwrapper-button-size : 1.4rem;
@@ -147,7 +71,7 @@ $controls-indicator-active: #2387b6;
     height: $descwrapper-height;
     width: calc( 100% - 2*#{ $control-width } - 1px );
     min-width: $min-helpers-width;
-    padding: 4px 1.125%;
+    padding: 4px 15px;
     @include flexbox;
     @include border-box-sizing;
     justify-content: space-between;
@@ -177,19 +101,18 @@ $controls-indicator-active: #2387b6;
   }
 
   .slider__slider-hint-wrapper{
+    @include border-box-sizing;
+    @include flexbox;
+    @include flexbox-centered-content;
     position: absolute;
     bottom: 0px; right: $control-width;
     height: $descwrapper-height;
-    width: calc( 100% - 2*#{ $control-width } - 1px );
+    width: calc( 100% - 2*#{ $control-width } + 1px );
     background-color: $darktheme-bgcolor;
     color: $darktheme-forecolor;
+    padding: 0px 15px;
     font-weight: bold;
-  }
-
-  //  Hiding hint blocks for desktop version
-  .slider__show-desc-wrapper,
-  .slider__slider-hint-wrapper {
-    display: none;
+    text-align: center;
   }
 
 }
@@ -221,20 +144,21 @@ $controls-indicator-active: #2387b6;
     @include border-box-sizing;
     background-color: $darktheme-bgcolor;
     color: $darktheme-forecolor;
-    padding: 40px 40px;
+    padding: 0;
     flex-flow: column wrap;
     align-items: center;
     // justify-content: space-evenly;
     justify-content: flex-start;
-    width: calc( 50% - #{ $control-width } );
-    // 0.5*#{ $prevnext-control-size }
-    height: 100%;
-    // opacity: 0.82;
+    width: calc( 100% - 2*#{ $control-width } );
+
+    // initial  height: 0px;
+    // revealed item height: 100%;
+    height: 0px; overflow: hidden;
+
 
     .slide-description__header {
-      @include pf-heading;
-      padding-top: 1rem;
-      padding-bottom: 1rem;
+      @include pf-heading-mobile;
+      padding: 0.4rem;
     }
 
     p{
@@ -258,19 +182,24 @@ $controls-indicator-active: #2387b6;
     }
 
     .slide-description__notifier{
-      width: 40%;
-      @include auto-margins;
-      @include border-box-sizing;
-      padding: 10px;
-      border: 2px solid orange;
-      text-align: center;
-      font-weight: bolder;
-      background-color: #6c23b6;
+      display: none;
     }
 
   }
 
 }
+
+.page-main__projects {
+
+  &.reveal-description .slider-slide.tns-slide-active .slider-slide__description{
+    transition: height 0.4s;
+    height: 100%;
+  }
+
+}
+
+
+
 
 
 

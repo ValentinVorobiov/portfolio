@@ -12,7 +12,7 @@ $default-toggler-forecolor: #3b3a3c;
   flex-flow: row wrap;
   justify-content: flex-start;
   width: 100%;
-  max-width: 600px;
+  // max-width: 600px;
   min-width: 280px;
 
   .accordion-toggler {
@@ -47,9 +47,10 @@ $default-toggler-forecolor: #3b3a3c;
   &:not( .active ){
 
     .accordion-toggler::before{
-        content: "+";
-        position: absolute;
-        right: 1rem;
+      content: ">";
+      position: absolute;
+      right: 1rem;
+      transform: rotate( 90deg );
     }
 
     .accordion-contents {
@@ -62,14 +63,15 @@ $default-toggler-forecolor: #3b3a3c;
   &.active{
 
     .accordion-toggler::after{
-        content: "—";
-        position: absolute;
-        right: 1rem;
+      content: "<";
+      position: absolute;
+      right: 1rem;
+      transform: rotate( 90deg );
     }
 
     .accordion-contents{
-        @include inline-flexbox;
-        width: 100%;
+      @include inline-flexbox;
+      width: 100%;
     }
 
   }

@@ -8,6 +8,14 @@ let routes = [
   { name : 'Repair Design Project', iPath : './projects/repair-design-project/', realPath : './projects/repair-design-project/index.html', } ,
 ]
 
+function elHasClass( el, className ){
+  let result = false;
+  if( el.getAttribute( 'class' ).indexOf( className ) > -1 ){
+    result = true;
+  }
+  return result;
+}
+
 const findRoute = function( aString ){
   let routeIndex = -1;
   routes.forEach( (route, index) => {
@@ -21,7 +29,6 @@ const findRoute = function( aString ){
   } ) ;
   return routeIndex;
 }
-
 
 let targetFrame = document.body.querySelector( "iframe.content-target" );
 let targetSource = targetFrame.getAttribute( 'src' );
@@ -131,6 +138,39 @@ window.addEventListener( 'onresize', () => {
     },
     350
   );
+} );
+
+//  add Link Buttons click handlers;
+
+let linkedButtons = document.body.querySelectorAll( '.toolbar__button--link' );
+
+linkedButtons.forEach( ( aButton ) => {
+  aButton.addEventListener( 'click', function( event ){
+    let button = event.target;
+    let route;
+
+    if( elHasClass( button, 'toolbar__button--pf' ) ){
+      route = routes[ 0 ];
+      targetFrame.setAttribute( 'src', route.realPath );
+      window.history.pushState( route , route.name, window.location.origin );
+      myHistory.push( route );
+    }
+
+    if( elHasClass( button, 'toolbar__button--theyalow' ) ){
+      route = routes[ 1 ];
+      targetFrame.setAttribute( 'src', route.realPath );
+      window.history.pushState( route , route.name, window.location.origin );
+      myHistory.push( route );
+    }
+
+    if( elHasClass( button, 'toolbar__button--repair-design' ) ){
+      route = routes[ 2 ];
+      targetFrame.setAttribute( 'src', route.realPath );
+      window.history.pushState( route , route.name, window.location.origin );
+      myHistory.push( route );
+    }
+
+  } );
 } );
 
 

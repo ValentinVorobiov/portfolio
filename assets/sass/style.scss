@@ -1,9 +1,11 @@
 @import './fonts.scss' ;
 
 @media ( min-width: 300px ) and ( max-width: 639px ){
-    @import './portfolio-mobile.scss' ;
+  @import './portfolio-mobile.scss' ;
+  @import './portfolio-footer.scss' ;
 }
 
 @media ( min-width: 640px ) and ( max-width: 2047px ) {
-    @import './portfolio-desktop.scss';
+  @import './portfolio-desktop.scss';
+  @import './portfolio-footer.scss' ;
 }
