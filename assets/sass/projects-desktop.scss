@@ -8,9 +8,6 @@ $controls-indicator-active: #2387b6;
 
 .page-main__projects{
   max-height: 75vw;
-  // @include flexbox;
-  // flex-flow: column wrap;
-  // justify-content: stretch;
   overflow: hidden;
   position: relative;
   @include flexbox;
@@ -31,10 +28,6 @@ $controls-indicator-active: #2387b6;
   .main-projects__slider, .tns-outer{
     @include border-box-sizing;
     position: relative;
-    // width: calc( 100% - 2*#{ $control-width } ) !important;
-    // margin-left: auto; margin-right: auto;
-
-
 
     .slider__item{
       @include inline-flexbox;
@@ -224,12 +217,9 @@ $controls-indicator-active: #2387b6;
     padding: 40px 40px;
     flex-flow: column wrap;
     align-items: center;
-    // justify-content: space-evenly;
     justify-content: flex-start;
     width: calc( 50% - #{ $control-width } );
-    // 0.5*#{ $prevnext-control-size }
     height: 100%;
-    // opacity: 0.82;
 
     .slide-description__header {
       @include pf-heading;

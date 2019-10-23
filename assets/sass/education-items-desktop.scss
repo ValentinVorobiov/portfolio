@@ -15,7 +15,6 @@ $progress-mark-size: 15px;
 
   .main-education__header{
     @include pf-heading;
-    // text-transform: uppercase;
   }
 
   .main-education__contents{
@@ -34,7 +33,6 @@ $progress-mark-size: 15px;
       @include border-box-sizing;
       flex-flow: column wrap;
       align-items: center;
-      // justify-content: space-between;
       justify-content: space-evenly;
       width: 29%;
       min-width: 300px;
